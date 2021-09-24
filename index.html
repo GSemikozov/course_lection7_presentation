@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lesson 7. HTML/CSS Course</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+            --color-key: #b20600;
+        }
+    </style>
+</head>
+<body class="shower list grid">
+<header class="caption">
+    <h1>Лекция 7</h1>
+</header>
+
+<section class="slide">
+    <h2 class="shout">Лекция 7 - Анимации в CSS</h2>
+</section>
+
+<section class="slide">
+    <h2>z-index</h2>
+    <div class="content">
+        <img class="image" height="400px" src="./pictures/axis.png">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Stacking context</h2>
+    <div class="content">
+        <p>Контекст наложения – это концепция трехмерного расположения HTML элементов вдоль оси Z.</p>
+        <p>Когда создается - <a target="_blank" href="https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">MDN</a></p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Stacking context</h2>
+    <div class="content">
+        <img class="image" height="400px" src="./pictures/stacking-context.png">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Процесс построения страницы</h2>
+    <div class="content">
+        <img class="image" height="240px" src="./pictures/reflow-repaint-composite.png">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Процесс построения страницы</h2>
+    <div class="content">
+        <ul>
+            <li>reflow / relayout</li>
+            <li>repaint</li>
+            <li>composite</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Reflow</h2>
+    <div class="content">
+        <p>Первый <mark class="secondary">reflow</mark> еще называется <mark class="secondary">layout</mark></p>
+        <p>Браузер определяет "места" всех элементов.</p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Reflow</h2>
+    <div class="content">
+        <img class="image" height="400px" src="./pictures/reflow-ex.png">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Repaint</h2>
+    <div class="content">
+        <p>Первый <mark class="secondary">repaint</mark> еще называется <mark class="secondary">paint</mark></p>
+        <p>Все элементы окрашиваются, применяется часть трансформаций, не затрагивающих положение элемента.</p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Repaint</h2>
+    <div class="content">
+        <img class="image" height="400px" src="./pictures/repaint-ex.png">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Composite</h2>
+    <div class="content">
+        <p>Разделяет элементы по слоям, растрирует слои</p>
+        <img class="image" height="400px" src="./pictures/composite-ex.png">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Пример</h2>
+    <div class="content">
+        <p>Что здесь не так?</p>
+        <a target="_blank" href="https://codepen.io/hermansemykozov/pen/oNZzQVY">codepen</a>
+    </div>
+</section>
+
+<section class="slide">
+    <h2 class="shout">А как сделать хорошо?</h2>
+</section>
+
+<section class="slide">
+    <h2>Что триггерит reflow?</h2>
+    <div class="content">
+        <p>css: <a target="_blank" href="https://csstriggers.com/">https://csstriggers.com/</a></p>
+        <p>js: <a target="_blank" href="https://gist.github.com/paulirish/5d52fb081b3570c81e3a">https://gist.github.com/paulirish/5d52fb081b3570c81e3a</a></p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Из чего складывается анимация?</h2>
+    <div class="content">
+        <p>3 спецификации:</p>
+        <ol>
+            <li><a target="_blank" href="https://www.w3.org/TR/css-transforms-1/">CSS Transforms</a> - преобразования</li>
+            <li><a target="_blank" href="https://www.w3.org/TR/css-transitions-1/">CSS Transitions</a> - переходы</li>
+            <li><a target="_blank" href="https://www.w3.org/TR/css-animations-1/">CSS Animations</a> - описание анимации через свойство `animation`</li>
+        </ol>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>CSS Transforms</h2>
+    <div class="content">
+        <p>CSS-свойство <mark>transform</mark></p>
+        <p>На текущий момент нам доступны:</p>
+        <ul>
+            <li>Перемещение `translate`</li>
+            <li>Масштабирование `scale`</li>
+            <li>Вращение `rotate`</li>
+            <li>Наклон `skew`</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Исходная точка</h2>
+    <div class="content">
+        <p>CSS-свойство <mark>transform-origin</mark></p>
+        <p>Точка, относительно которой крутим / перемещаем элемент</p>
+
+        <img class="image" height="200px" src="./pictures/rotate-ex.png">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>opacity</h2>
+    <div class="content">
+        <p><mark>opacity</mark> тоже выделяет элемент на новый композитный слой.</p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>CSS Transitions</h2>
+    <div class="content">
+        <p><mark>transition</mark> - переход - это анимация от одного набора CSS свойств к другому.</p>
+        <p>Что нужно?</p>
+        <ul>
+            <li>2 набора свойств - начальный и конечный</li>
+            <li>`transition` - описание свойств и характеристик анимации перехода</li>
+            <li>Инициатор</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Поддерживаемые свойства</h2>
+    <div class="content">
+        <p>Работает - не значит, что нужно использовать.</p>
+        <ul>
+            <li>все преобразования: <mark>translate</mark>, <mark>rotate</mark>, <mark>scale</mark>, <mark>skew</mark></li>
+            <li><mark>color</mark>, <mark>background-color</mark>, <mark>border-color</mark></li>
+            <li><mark>width</mark>, <mark>height</mark>, <mark>border-width</mark>, <mark>margin</mark>, <mark>padding</mark></li>
+            <li><mark>font-size</mark>, <mark>line-height</mark>, <mark>letter-spacing</mark>, <mark>word-spacing</mark></li>
+            <li><mark>top</mark>, <mark>right</mark>, <mark>bottom</mark>, <mark>left</mark></li>
+            <li><mark>opacity</mark></li>
+            <li>... (те, что выше - во всех браузерах)</li>
+        </ul>
+
+        <a target="_blank" href="http://www.w3.org/TR/css3-transitions/#animatable-properties">полный список</a>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>CSS Transitions</h2>
+    <div class="content">
+        <ul>
+            <li><mark>transition-property</mark> - Какие свойства анимировать</li>
+            <li><mark>transition-duration</mark> - Сколько времени длится анимация</li>
+            <li><mark>transition-timing-function</mark> - Какой тип анимации будет использован</li>
+            <li><mark>transition-delay</mark> - Необязательная задержка в начале анимации</li>
+        </ul>
+
+        <p>
+            <a target="_blank" href="https://easings.net/ru">шпаргалка</a> и <a target="_blank" href="https://habr.com/ru/post/220715/">статья</a>
+        </p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Меню</h2>
+</section>
+
+<section class="slide">
+    <h2>CSS Animations</h2>
+    <div class="content">
+        <ul>
+            <li><mark>animation-name</mark> - название анимации</li>
+            <li><mark>animation-duration</mark> - как долго длится анимация</li>
+            <li><mark>animation-timing-function</mark> - как вычисляются промежуточные состояния</li>
+            <li><mark>animation-delay</mark> - задержка в начале анимации</li>
+            <li><mark>animation-iteration-count</mark> - сколько раз должна выполняться анимация</li>
+            <li><mark>animation-direction</mark> - должно движение идти в обратную сторону или нет</li>
+            <li><mark>animation-fill-mode</mark> - какие стили применяются до начала анимации и после её завершения</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>keyframes</h2>
+    <div class="content">
+            <pre><code class="lang-css">@<span class="hljs-keyword">keyframes</span> name {
+<span class="hljs-selector-tag">  from</span> { <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>; }
+<span class="hljs-selector-tag">  to</span> { <span class="hljs-attribute">left</span>: <span class="hljs-number">300px</span>; }
+}
+</code></pre>
+        <p>`name` – название анимации</p>
+        <p>`from` и `to` – первый и последний ключевые кадры соответственно</p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>CSS Animations</h2>
+    <div class="content">
+        <a href="https://codepen.io/hermansemykozov/pen/MWoqMjZ">codepen с картинкой</a>
+    </div>
+</section>
+
+<section class="slide">
+    <h2 class="shout">ДЗ</h2>
+</section>
+
+<section class="slide">
+    <h2>ДЗ</h2>
+    <div class="content">
+        <p>Доделать проект</p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Почитать</h2>
+    <div class="content">
+        <ul>
+            <li><a href="https://html5book.ru/3d-transform/">3d-трансформации</a></li>
+            <li><a href="https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing">Layout thrashing</a></li>
+        </ul>
+    </div>
+</section>
+
+<div class="progress"></div>
+
+<script src="./shower.js"></script>
+</body>
+</html>

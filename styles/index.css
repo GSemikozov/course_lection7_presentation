@@ -1,0 +1,59 @@
+.lesson__link {
+    color: var(--color-key);
+}
+
+.lesson {
+    display: flex;
+    min-height: 100vh;
+    box-sizing: border-box;
+    justify-content: center;
+    background: var(--color-back);
+}
+
+.lesson__header {
+    font-size: 4em;
+    margin: 0;
+    color: var(--color-key);
+}
+
+.lesson__inner {
+    max-width: 950px;
+    padding: 0 40px;
+    background: white;
+}
+
+.lesson__title {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
+    margin: 1.167em 0 0;
+    font-weight: 700;
+}
+
+.lesson__item {
+    display: block;
+    max-width: 800px;
+}
+
+.lesson__description {
+    font-weight: 100;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.lesson__title {
+    display: block;
+    text-decoration: none;
+}
+
+.lesson__list {
+    margin: 0;
+    padding: 0 0 100px 0;
+}
+
+.small code {
+    font-size: 14px;
+}
